@@ -1,5 +1,6 @@
 package predator;
 
+import calendar.DayOfWeek;
 import org.junit.jupiter.api.Test;
 
 import java.awt.Color;
@@ -11,12 +12,12 @@ class CatTest {
     @Test
     void shouldSleep() {
         // given
-        Cat cat = new Cat(Color.ORANGE, 2.5, "Birman");
+        Cat cat = new Cat("Orange", 2.5, "Birman");
 
         // when
-        String day1 = "пн";
-        String day2 = "Ср";
-        String day3 = "ПТ";
+        DayOfWeek day1 = DayOfWeek.MONDAY;
+        DayOfWeek day2 = DayOfWeek.WEDNESDAY;
+        DayOfWeek day3 = DayOfWeek.FRIDAY;
 
         //then
         assertThat(cat.action(day1)).isEqualTo(cat.action(day2))
@@ -27,12 +28,12 @@ class CatTest {
     @Test
     void shouldHunt() {
         // given
-        Cat cat = new Cat(Color.ORANGE, 2.5, "Birman");
+        Cat cat = new Cat("Orange", 2.5, "Birman");
 
         // when
-        String day1 = "вТ";
-        String day2 = "Чт";
-        String day3 = "сб";
+        DayOfWeek day1 = DayOfWeek.TUESDAY;
+        DayOfWeek day2 = DayOfWeek.THURSDAY;
+        DayOfWeek day3 = DayOfWeek.SATURDAY;
 
         //then
         assertThat(cat.action(day1)).isEqualTo(cat.action(day2))
@@ -43,10 +44,10 @@ class CatTest {
     @Test
     void shouldTIGIDIK() {
         // given
-        Cat cat = new Cat(Color.ORANGE, 2.5, "Birman");
+        Cat cat = new Cat("Orange", 2.5, "Birman");
 
         // when
-        String day = "НД";
+        DayOfWeek day = DayOfWeek.SUNDAY;
 
         //then
         assertThat(cat.action(day)).isEqualTo(cat.tigidik());
@@ -55,10 +56,10 @@ class CatTest {
     @Test
     void shouldLick() {
         // given
-        Cat cat = new Cat(Color.ORANGE, 2.5, "Birman");
+        Cat cat = new Cat("Orange", 2.5, "Birman");
 
         // when
-        String day = "АБВ";
+        DayOfWeek day = DayOfWeek.UNKNOWN;
 
         //then
         assertThat(cat.action(day)).isEqualTo(cat.lick());
@@ -67,10 +68,10 @@ class CatTest {
     @Test
     void shouldEqual() {
         // given
-        Cat cat1 = new Cat(Color.ORANGE, 2.5, "Birman");
+        Cat cat1 = new Cat("Orange", 2.5, "Birman");
 
         // when
-        Cat cat2 = new Cat(Color.ORANGE, 2.5, "Birman");
+        Cat cat2 = new Cat("Orange", 2.5, "Birman");
 
         //then
         assertThat(cat1.equals(cat2)).isTrue();
@@ -79,10 +80,10 @@ class CatTest {
     @Test
     void shouldNotEqual() {
         // given
-        Cat cat1 = new Cat(Color.ORANGE, 2.5, "Birman");
+        Cat cat1 = new Cat("Orange", 2.5, "Birman");
 
         // when
-        Cat cat2 = new Cat(Color.ORANGE, 2.6, "Birman");
+        Cat cat2 = new Cat("Orange", 2.6, "Birman");
 
         //then
         assertThat(cat1.equals(cat2)).isFalse();

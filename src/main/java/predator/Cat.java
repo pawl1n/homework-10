@@ -1,12 +1,13 @@
 package predator;
 
-import java.awt.Color;
+import calendar.DayOfWeek;
+
 import java.util.Objects;
 
 public class Cat extends Predator {
     private String breed;
 
-    public Cat(Color color, double weight, String breed) {
+    public Cat(String color, double weight, String breed) {
         super(color, weight);
 
         this.breed = breed;
@@ -28,11 +29,11 @@ public class Cat extends Predator {
         return "They'll be clear";
     }
 
-    public String action(String day) {
-        return switch (day.toUpperCase()) {
-            case "ПН", "СР", "ПТ" -> sleep();
-            case "ВТ", "ЧТ", "СБ" -> hunt();
-            case "НД" -> tigidik();
+    public String action(DayOfWeek day) {
+        return switch (day) {
+            case MONDAY, WEDNESDAY, FRIDAY -> sleep();
+            case TUESDAY, THURSDAY, SATURDAY-> hunt();
+            case SUNDAY -> tigidik();
             default -> lick();
         };
     }
@@ -45,15 +46,6 @@ public class Cat extends Predator {
     @Override
     public String hunt() {
         return "I'll find the mouse... or the bird...";
-    }
-
-    @Override
-    public String toString() {
-        return "Cat{" +
-                "breed='" + breed + '\'' +
-                ", color=" + color +
-                ", weight=" + weight +
-                '}';
     }
 
     @Override

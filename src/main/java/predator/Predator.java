@@ -1,22 +1,21 @@
 package predator;
 
-import java.awt.Color;
 import java.util.Objects;
 
 public abstract class Predator {
-    protected Color color;
-    protected double weight;
+    private String color;
+    private double weight;
 
-    protected Predator(Color color, double weight) {
+    protected Predator(String color, double weight) {
         this.color = color;
         this.weight = weight;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
