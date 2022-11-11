@@ -3,8 +3,6 @@ package predator;
 import calendar.DayOfWeek;
 import org.junit.jupiter.api.Test;
 
-import java.awt.Color;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CatTest {
